@@ -1,10 +1,13 @@
 import React from "react";
 import "./Feed.css";
+import StoryReel from "../storyReel/StoryReel";
+import MessageSender from "../messageSender/MessageSender";
 
 const Feed = () => {
   return (
     <div className="feed">
-      <h2>Feed</h2>
+      <StoryReel />
+      <MessageSender />
     </div>
   );
 };
