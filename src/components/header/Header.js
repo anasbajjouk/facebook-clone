@@ -11,15 +11,17 @@ import NotificationsActiveIcon from "@material-ui/icons/NotificationsActive";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import "./Header.css";
 import { Avatar, IconButton } from "@material-ui/core";
+import { useStateValue } from "../../context/StateProvider";
 
 const Header = () => {
+  const [{ user }, dispatch] = useStateValue();
   return (
-    <di className="header">
+    <div className="header">
       <div className="header__left">
         <img
           src="https://engineering.fb.com/wp-content/uploads/2019/08/facebook-logo-2019.png"
           alt="fb logo"
-        />{" "}
+        />
         <div className="header__input">
           <SearchIcon />
           <input type="text" placeholder="Search whatever..." />
@@ -49,8 +51,8 @@ const Header = () => {
 
       <div className="header__right">
         <div className="header__info">
-          <Avatar />
-          <h4>ANAS</h4>
+          <Avatar src={user.photoURL}/>
+          <h4>{user.displayName}</h4>
         </div>
 
         <IconButton>
@@ -69,7 +71,7 @@ const Header = () => {
           <ExpandMoreIcon />
         </IconButton>
       </div>
-    </di>
+    </div>
   );
 };
 
